@@ -82,4 +82,4 @@ cp motd /etc/motd
 #################################################################
 ##  On supprime les sources github
 #################################################################
-#cd .. && rm -R workdir/ install.sh
+cd .. && rm -R workdir/ install.sh
