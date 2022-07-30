@@ -1,8 +1,9 @@
 #!/bin/sh
 
+VERSION="v0.0.2"
 
 echo "-------------------------------------------------------------------------------"
-echo "|        Script d'installation de base pour Alpine Linux. Waaman / v0.0.1     |" 
+echo "|        Script d'installation de base pour Alpine Linux. Waaman / ${VERSION}     |" 
 echo "|   Support: https://github.com/waaman/alpine-fresh-setup/issues              |"
 echo "|   Licence: https://github.com/waaman/alpine-fresh-setup/blob/main/LICENSE   |"
 echo "-------------------------------------------------------------------------------"
