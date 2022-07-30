@@ -19,7 +19,7 @@ Depuis votre système Alpine fraîchement installé et en tant que root lancez l
 
 # Les étapes du pas à pas
 
-- création de votre utilisateur avec droits sudo
+- création de votre utilisateur avec droits sudo - NON OPTIONNEL
 
 - proposition: **CIFS /SAMBA**
 
