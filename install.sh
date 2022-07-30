@@ -4,9 +4,9 @@ VERSION="v0.0.2"
 
 
 echo "-------------------------------------------------------------------------------"
-echo "|        Script d'installation de base pour Alpine Linux. Waaman / ${VERSION}     |" 
-echo "|   Support: https://github.com/waaman/alpine-fresh-setup/issues              |"
-echo "|   Licence: https://github.com/waaman/alpine-fresh-setup/blob/main/LICENSE   |"
+echo "        Script d'installation de base pour Alpine Linux. Waaman / ${VERSION} " 
+echo "   Support: https://github.com/waaman/alpine-fresh-setup/issues              "
+echo "   Licence: https://github.com/waaman/alpine-fresh-setup/blob/main/LICENSE   "
 echo "-------------------------------------------------------------------------------"
 
 echo "Ce script est fourni comme tel. Sans garantie de résultat et sous la Licence BSD 2-Clause Simplified License."
