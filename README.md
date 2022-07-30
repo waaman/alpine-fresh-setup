@@ -43,11 +43,12 @@ Si vous choisissez d'installer Portainer alors vous aurez accès à différents 
 Portainer est installé via docker compose. 
 Son **docker-compose.yml** se trouvera dans le home de votre user dans **~/.compose/portainer/**.
 Il contient les paramètres saisies durant le pas à pas concernant le port coté hôte notamment.
+
 Du coup si il y a une version plus récente de Portainer le script **portainer-update** fait ceci:
 
     cd ~/.compose/portainer/ && docker-compose pull && docker-compose up -d
 
-Ce qui fait un pull qui ne fera quelque chose que si il y a un version différente et un up si quelque chose a changée. 
+Ce qui fait un pull qui ne fera quelque chose que si il y a une version différente et un up si quelque chose a changée. 
 Comme l'utilisateur créé fait partie du groupe docker il ne faut pas manipuler Portainer avec root ou sudo.
 Ces scripts ne peuvent pas être exécutés en tant que root ou sudo.
 
@@ -59,7 +60,7 @@ Ce script est au départ pour mon propre usage mais libre à vous de l'améliore
 
 Dans le dossier scripts/ chaque fichier .sh s'y trouvant est traité dans une boucle les uns après les autres par ordre alphanumérique.
 
-Si vous souhaitez ajouter votre propre script crées simplement un fichier dans ce dossier scripts/ en vous inspirant des autres.
+Si vous souhaitez ajouter votre propre script créez simplement un fichier dans ce dossier scripts/ en vous inspirant des autres.
 
   
 
@@ -81,8 +82,8 @@ Donc si dans vos propres scripts vous avez besoin de ces infos vous pouvez les o
 
 id d'utilisateur créé:
 
-    read -r userid < user_id    
-    echo ${userid}
+    read -r uid < user_id    
+    echo ${uid}
 
   
 
