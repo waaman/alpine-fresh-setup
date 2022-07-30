@@ -1,11 +1,11 @@
 #!/bin/sh
 
 
-echo "-------------------------------------------------------------------------------------"
-echo "|        Script d'installation de base pour Alpine Linux. Waaman / v0.0.1           |" 
+echo "-------------------------------------------------------------------------------"
+echo "|        Script d'installation de base pour Alpine Linux. Waaman / v0.0.1     |" 
 echo "|   Support: https://github.com/waaman/alpine-fresh-setup/issues              |"
 echo "|   Licence: https://github.com/waaman/alpine-fresh-setup/blob/main/LICENSE   |"
-echo "-------------------------------------------------------------------------------------"
+echo "-------------------------------------------------------------------------------"
 
 echo "Ce script est fourni comme tel. Sans garantie de résultat et sous la Licence BSD 2-Clause Simplified License."
 echo "Vous comprenez et acceptez ces termes ? (o/N)"
