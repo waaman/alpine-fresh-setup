@@ -62,6 +62,7 @@ then
 fi
 git clone --quiet https://github.com/waaman/alpine-fresh-setup.git workdir
 cd workdir
+ROOT_DIR=$(dirname $(readlink -f $0))
 chmod a+x scripts/*.sh
 
 echo "Installation via https://github.com/waaman/alpine-fresh-setup/" >> motd
@@ -72,20 +73,20 @@ printf "\n" >> motd
 #################################################################
 ##  On exécute les scripts un à un
 #################################################################
-for f in ./scripts/*.sh; do
+for f in $ROOT_DIR/scripts/*.sh; do
     sh "$f"
 done
 
 #################################################################
 ##  On exécute les complements/scripts un à un
 #################################################################
-for f in ./complements/scripts/*.sh; do
+for f in $ROOT_DIR/complements/scripts/*.sh; do
     sh "$f"
 done
 
 # Le motd sera remplacé par celui remplis au fil des scripts
 rm /etc/motd
-cp motd /etc/motd
+cp $ROOT_DIR/motd /etc/motd
 
 
 #################################################################
