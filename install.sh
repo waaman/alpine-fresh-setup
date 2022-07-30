@@ -2,6 +2,7 @@
 
 VERSION="v0.0.2"
 
+
 echo "-------------------------------------------------------------------------------"
 echo "|        Script d'installation de base pour Alpine Linux. Waaman / ${VERSION}     |" 
 echo "|   Support: https://github.com/waaman/alpine-fresh-setup/issues              |"
