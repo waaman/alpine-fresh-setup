@@ -17,7 +17,7 @@ then
     rc-update add qemu-guest-agent default
     service qemu-guest-agent start
 
-    # Shutdown - guest agent workaround
+    # Pour que la commande proxmox soit assurée dans alpine
     cp $ROOT_DIR/maintenance/shutdown /sbin/
     chmod 0777 /sbin/shutdown
     chmod a+x /sbin/shutdown
