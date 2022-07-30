@@ -2,6 +2,13 @@
 
 VERSION="v0.0.2"
 
+SYSTEM_USER_NAME=$(id -un)
+if [[ "${SYSTEM_USER_NAME}" != 'root'  ]]
+then
+    echo "Ne peut être exécuté que par root."
+    exit 1
+fi
+
 
 echo "-------------------------------------------------------------------------------"
 echo "        Script d'installation de base pour Alpine Linux. Waaman / ${VERSION} " 
