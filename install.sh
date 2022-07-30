@@ -3,8 +3,8 @@
 
 echo "-------------------------------------------------------------------------------------"
 echo "|        Script d'installation de base pour Alpine Linux. Waaman / v0.0.1           |" 
-echo "|   Support: https://github.com/waaman/alpine-baremetal-install/issues              |"
-echo "|   Licence: https://github.com/waaman/alpine-baremetal-install/blob/main/LICENSE   |"
+echo "|   Support: https://github.com/waaman/alpine-fresh-setup/issues              |"
+echo "|   Licence: https://github.com/waaman/alpine-fresh-setup/blob/main/LICENSE   |"
 echo "-------------------------------------------------------------------------------------"
 
 echo "Ce script est fourni comme tel. Sans garantie de résultat et sous la Licence BSD 2-Clause Simplified License."
@@ -58,11 +58,11 @@ if [ -d "workdir" ]
 then
     rm -R workdir/
 fi
-git clone --quiet https://github.com/waaman/alpine-baremetal-install.git workdir
+git clone --quiet https://github.com/waaman/alpine-fresh-setup.git workdir
 cd workdir
 chmod a+x scripts/*.sh
 
-echo "Installation via https://github.com/waaman/alpine-baremetal-install/" >> motd
+echo "Installation via https://github.com/waaman/alpine-fresh-setup/" >> motd
 echo "Ce pense bête se trouve dans /etc/motd" >> motd
 printf "\n" >> motd
 
