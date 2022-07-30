@@ -76,6 +76,13 @@ for f in ./scripts/*.sh; do
     sh "$f"
 done
 
+#################################################################
+##  On exécute les complements/scripts un à un
+#################################################################
+for f in ./complements/scripts/*.sh; do
+    sh "$f"
+done
+
 # Le motd sera remplacé par celui remplis au fil des scripts
 rm /etc/motd
 cp motd /etc/motd
