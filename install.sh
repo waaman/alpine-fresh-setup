@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VERSION="v0.0.2"
+VERSION="v0.0.3"
 
 SYSTEM_USER_NAME=$(id -un)
 if [[ "${SYSTEM_USER_NAME}" != 'root'  ]]
@@ -58,6 +58,8 @@ echo '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/wheel
 echo "Montage auto activé pour les partages distants listés dans /etc/fstab"
 rc-update add netmount boot
 
+echo "Activation de crond - Les scripts sont à placer dans les sous dossirs de /etc/periodic/"
+rc-service crond start && rc-update add crond
 
 #################################################################
 ##  On récupère les sources sur github
