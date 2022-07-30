@@ -21,13 +21,16 @@ then
     apk add msmtp mailx
 
     # On déplace fs/mail/etc/* dans /etc
-    cp $ROOT_DIR/complements/fs/mail/etc/* /etc/
+    cp $ROOT_DIR/complements/fs/mail/etc/msmtprc /etc/
+
+    mkdir -p /etc/local.d/
+    cp $ROOT_DIR/complements/fs/mail/etc/local.d/msmtp-sendmail.start /etc/local.d/
 
     # On donne drois d'exécution
     chmod +x /etc/local.d/msmtp-sendmail.start
 
     # On exécute manuellement pour la prmière fois, ça évitera de redémarrer
-    sh /etc/local.d/msmtp-sendmail.start   
+    /etc/local.d/msmtp-sendmail.start   
 
     echo "root: <email de root>" > /etc/aliases
     echo "${name}: <email de ${name}>" >> /etc/aliases
