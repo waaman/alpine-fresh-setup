@@ -23,7 +23,7 @@ then
     service docker start
     adduser ${name} docker
 
-    echo "Docker (aide: docker -h)" >> ${ROOT_DIR}/motd
+    echo "Docker en tant que user (aide: docker -h)" >> ${ROOT_DIR}/motd
     echo "    Démarrer|Arrêter|Redémarrer un container: docker container start|stop|restart <container_name>" >> ${ROOT_DIR}/motd
     echo "    Supprimer un container: docker container rm <container_name>" >> ${ROOT_DIR}/motd
     printf "\n" >> ${ROOT_DIR}/motd
