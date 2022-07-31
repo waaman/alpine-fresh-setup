@@ -37,24 +37,15 @@ https://dl-cdn.alpinelinux.org/alpine/v$(cut -d'.' -f1,2 /etc/alpine-release)/co
 #https://dl-cdn.alpinelinux.org/alpine/edge/testing/
 EOF
 
-
 #################################################################
-##  Mises à jour des dépôts et installation de paquets de base
+##  Préparation du terrain
 #################################################################
 echo "Installation de paquets utiles: nano git sudo curl tree"
 apk update > /dev/null && apk add nano git sudo curl tree runuser > /dev/null
 
-
-#################################################################
-##  Le groupe wheel sera autorisé à sudo
-#################################################################
 echo "Le groupe wheel sera autorisé à sudo"
 echo '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/wheel
 
-
-#################################################################
-##  Montage auto des partages distants listés dans /etc/fstab
-#################################################################
 echo "Montage auto activé pour les partages distants listés dans /etc/fstab"
 rc-update add netmount boot
 
@@ -82,20 +73,20 @@ printf "\n" >> motd
 #################################################################
 ##  On exécute les scripts un à un
 #################################################################
-for f in $ROOT_DIR/scripts/*.sh; do
+for f in ${ROOT_DIR}/scripts/*.sh; do
     sh "$f"
 done
 
 #################################################################
 ##  On exécute les complements/scripts un à un
 #################################################################
-for f in $ROOT_DIR/complements/scripts/*.sh; do
+for f in ${ROOT_DIR}/complements/scripts/*.sh; do
     sh "$f"
 done
 
 # Le motd sera remplacé par celui remplis au fil des scripts
 rm /etc/motd
-cp $ROOT_DIR/motd /etc/motd
+cp ${ROOT_DIR}/motd /etc/motd
 
 
 #################################################################
