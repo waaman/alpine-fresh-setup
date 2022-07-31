@@ -41,8 +41,8 @@ EOF
 #################################################################
 ##  Mises à jour des dépôts et installation de paquets de base
 #################################################################
-echo "Installation de paquets utiles: nano git sudo curl tree"
-apk update > /dev/null && apk add nano git sudo curl tree > /dev/null
+echo "Installation de paquets utiles: nano git sudo curl tree runuser"
+apk update > /dev/null && apk add nano git sudo curl tree runuser > /dev/null
 
 
 #################################################################

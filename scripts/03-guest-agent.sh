@@ -18,7 +18,7 @@ then
     service qemu-guest-agent start
 
     # Pour que la commande proxmox soit assurée dans alpine
-    cp $ROOT_DIR/maintenance/shutdown /sbin/
+    cp ${ROOT_DIR}/maintenance/shutdown /sbin/
     chmod 0777 /sbin/shutdown
     chmod a+x /sbin/shutdown
 
