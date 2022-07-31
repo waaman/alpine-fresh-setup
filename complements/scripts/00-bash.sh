@@ -18,7 +18,7 @@ then
     read -r name < $ROOT_DIR/user_name
     read -r group < $ROOT_DIR/user_group
 
-    apk add bash bash-doc bash-completion
+    apk add bash bash-doc bash-completion ncurses
 
     # On va créer .profile et .bashrc
     echo "exec /bin/bash" > /home/${name}/.profile
