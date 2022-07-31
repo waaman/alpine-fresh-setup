@@ -6,7 +6,6 @@ echo "--------------------------------------------------------"
 
 
 ROOT_DIR=$(dirname $(readlink -f $0))/..
-source ${ROOT_DIR}/fonctions.sh
 
 echo "Nom de l'utilisateur à créer: "
 read user_name
@@ -21,8 +20,7 @@ done
 echo "Son id: (vide = defaut: 99)"
 read user_id
 # Vérifications de saisie
-#while getent passwd ${user_id} >/dev/null;
-while UIDExists ${user_id} = true
+while getent passwd ${user_id} >/dev/null;
 do
     echo "L'id ${user_id} est déja pris."
     echo "Son id: (vide = defaut: 99) (Ctrl+c pour annuler)"
@@ -33,8 +31,7 @@ done
 echo "Son groupe: (vide = defaut: users)"
 read user_group
 # Vérifications de saisie
-#while ! getent group ${user_group} >/dev/null;
-while GroupExists ${user_group} = false
+while ! getent group ${user_group} >/dev/null;
 do
     echo "Le groupe ${user_group} n'existe pas."
     echo "Son groupe: (vide = defaut: users) (Ctrl+c pour annuler)"
