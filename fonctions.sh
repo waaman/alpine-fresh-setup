@@ -1,7 +1,7 @@
 #!/bin/sh
 
 UIDExists(){
-    if id ${1} > /dev/null 2>&1; then
+    if getent passwd ${1} > /dev/null 2>&1; then
         echo 1
     else   
         echo 0
