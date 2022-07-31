@@ -1,11 +1,11 @@
 #!/bin/sh
 
-VERSION="v0.0.4"
+VERSION="v0.0.5"
 
 SYSTEM_USER_NAME=$(id -un)
-if [[ "${SYSTEM_USER_NAME}" != 'root'  ]]
+if [[ ${SYSTEM_USER_NAME} != 'root'  ]]
 then
-    echo "Ne peut être exécuté que par root."
+    echo "ERREUR - Ne peut être exécuté que par root."
     exit 1
 fi
 
