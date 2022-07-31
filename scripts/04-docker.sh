@@ -33,7 +33,6 @@ then
     read portainer
     if [ ! ${portainer} = n ]
     then
-        runuser -u ${name} mkdir -p /home/${name}/.compose/portainer/ /home/${name}/portainer/
 
         echo "Sur quel port coté hôte doit-il écouter ? (vide = defaut : 9000)"
         read portainer_port
@@ -55,8 +54,9 @@ then
             fi
         done
 
-        # On déplace le docker-compose.yml de portainer dans le dossier .compose/portainer du user
+        # On crée le dossier .compose/portainer/ pour notre user
         runuser -u ${name} mkdir -p /home/${name}/.compose/portainer/
+        # On déplace le docker-compose.yml de portainer dans le dossier .compose/portainer du user
         cp ${ROOT_DIR}/complements/portainer-compose.yml /home/${name}/.compose/portainer/docker-compose.yml
         # Ce sera le user le proprio
         chown ${name}:${group} -R /home/${name}/.compose/portainer/docker-compose.yml
