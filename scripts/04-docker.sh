@@ -33,6 +33,7 @@ then
     read portainer
     if [ ! ${portainer} = n ]
     then
+        sudo -u ${name} mkdir -p /home/${name}/.compose/portainer/ /home/${name}/portainer/
 
         echo "Sur quel port coté hôte doit-il écouter ? (vide = defaut : 9000)"
         read portainer_port
@@ -54,15 +55,14 @@ then
             fi
         done
 
-        # On crée le dossier .compose/portainer/ pour notre user
-        runuser -u ${name} mkdir -p /home/${name}/.compose/portainer/
         # On déplace le docker-compose.yml de portainer dans le dossier .compose/portainer du user
         cp ${ROOT_DIR}/complements/portainer-compose.yml /home/${name}/.compose/portainer/docker-compose.yml
-        # Ce sera le user le proprio
         chown ${name}:${group} -R /home/${name}/.compose/portainer/docker-compose.yml
-        # On modifie notre compose en tant que ${name}
-        runuser -u ${name} sed -i "s/NAME/${name}/g" /home/${name}/.compose/portainer/docker-compose.yml
-        runuser -u ${name} sed -i "s/PORT/${portainer_port}/g" /home/${name}/.compose/portainer/docker-compose.yml
+
+        # On modifie notre compose
+        sudo -u ${name} sed -i "s/NAME/${name}/g" /home/${name}/.compose/portainer/docker-compose.yml
+        sudo -u ${name} sed -i "s/PORT/${portainer_port}/g" /home/${name}/.compose/portainer/docker-compose.yml
+     
 
         # Scripts de maintenance dans /usr/local/bin, on les chmod
         chmod -R 0777 ${ROOT_DIR}/maintenance/portainer/portainer-*
