@@ -56,6 +56,7 @@ then
         done
 
         # On déplace le docker-compose.yml de portainer dans le dossier .compose/portainer du user
+        runuser -u ${name} mkdir -p /home/${name}/.compose/portainer/
         cp ${ROOT_DIR}/complements/portainer-compose.yml /home/${name}/.compose/portainer/docker-compose.yml
         # Ce sera le user le proprio
         chown ${name}:${group} -R /home/${name}/.compose/portainer/docker-compose.yml
