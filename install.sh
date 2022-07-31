@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VERSION="v0.0.5"
+VERSION="v0.0.6"
 
 SYSTEM_USER_NAME=$(id -un)
 if [[ ${SYSTEM_USER_NAME} != 'root'  ]]
