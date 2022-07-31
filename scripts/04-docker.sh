@@ -75,7 +75,7 @@ then
         echo "Portainer tourne sur le port ${portainer_port}" >> ${ROOT_DIR}/motd
         printf "\n" >> ${ROOT_DIR}/motd
                 
-        echo "Portainer commandes (scripts présent dans /usr/local/bin)" >> ${ROOT_DIR}/motd
+        echo "Portainer commandes (scripts présents dans /usr/local/bin)" >> ${ROOT_DIR}/motd
         echo "    portainer_stop | portainer_start | portainer_restart | portainer_update" >> ${ROOT_DIR}/motd
         printf "\n" >> ${ROOT_DIR}/motd
 
