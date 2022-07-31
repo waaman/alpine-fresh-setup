@@ -2,24 +2,24 @@
 
 UIDExists(){
     if getent passwd ${1} > /dev/null 2>&1; then
-        echo 1
+        echo true
     else   
-        echo 0
+        echo false
     fi
 }
 
 GroupExists(){
     if getent group ${1} > /dev/null 2>&1; then
-        echo 1
+        echo true
     else   
-        echo 0
+        echo false
     fi
 }
 
 PortInUse(){
     if netstat -tulpn | grep :${1} > /dev/null 2>&1; then
-        echo 1
+        echo true
     else   
-        echo 0
+        echo false
     fi
 }

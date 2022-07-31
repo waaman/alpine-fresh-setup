@@ -22,7 +22,7 @@ echo "Son id: (vide = defaut: 99)"
 read user_id
 # Vérifications de saisie
 #while getent passwd ${user_id} >/dev/null;
-while UIDExists ${user_id}
+while UIDExists ${user_id} = true
 do
     echo "L'id ${user_id} est déja pris."
     echo "Son id: (vide = defaut: 99) (Ctrl+c pour annuler)"
@@ -34,7 +34,7 @@ echo "Son groupe: (vide = defaut: users)"
 read user_group
 # Vérifications de saisie
 #while ! getent group ${user_group} >/dev/null;
-while ! GroupExists ${user_group}
+while GroupExists ${user_group} = false
 do
     echo "Le groupe ${user_group} n'existe pas."
     echo "Son groupe: (vide = defaut: users) (Ctrl+c pour annuler)"
