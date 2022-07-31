@@ -30,7 +30,7 @@ fi
 #################################################################
 ##  Les dépôts de départ avec le community activé
 #################################################################
-echo "Modifications des dépôts"
+echo "---- Modifications des dépôts"
 cat > /etc/apk/repositories << EOF; $(echo)
 https://dl-cdn.alpinelinux.org/alpine/v$(cut -d'.' -f1,2 /etc/alpine-release)/main/
 https://dl-cdn.alpinelinux.org/alpine/v$(cut -d'.' -f1,2 /etc/alpine-release)/community/
@@ -40,22 +40,22 @@ EOF
 #################################################################
 ##  Préparation du terrain
 #################################################################
-echo "Installation de paquets utiles: nano git sudo curl tree"
+echo "---- Installation de paquets utiles: nano git sudo curl tree"
 apk update > /dev/null && apk add nano git sudo curl tree runuser > /dev/null
 
-echo "Le groupe wheel sera autorisé à sudo"
+echo "---- Le groupe wheel sera autorisé à sudo"
 echo '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/wheel
 
-echo "Montage auto activé pour les partages distants listés dans /etc/fstab"
+echo "---- Montage auto activé pour les partages distants listés dans /etc/fstab"
 rc-update add netmount boot
 
-echo "Activation de crond - Les scripts sont à placer dans les sous dossiers de /etc/periodic/"
+echo "---- Activation de crond - Les scripts sont à placer dans les sous dossiers de /etc/periodic/"
 rc-service crond start && rc-update add crond
 
 #################################################################
 ##  On récupère les sources sur github
 #################################################################
-echo "Récupération des scripts sur github"
+echo "---- Récupération des scripts sur github"
 if [ -d "workdir" ]
 then
     rm -R workdir/
@@ -92,4 +92,9 @@ cp ${ROOT_DIR}/motd /etc/motd
 #################################################################
 ##  On supprime les sources github
 #################################################################
+echo "---- Ménage"
 cd .. && rm -R workdir/ install.sh
+
+
+echo "-------------------- Terminé -----------------------"
+exit 0
