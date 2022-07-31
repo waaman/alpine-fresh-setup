@@ -7,7 +7,7 @@ echo "--------------------------------------------------------"
 
 ROOT_DIR=$(dirname $(readlink -f $0))/../..
 
-echo "Voulez vous utilisez bash à la place de ash ?"
+echo "Voulez vous utiliser bash à la place de ash ?"
 echo "(o/N)"
 read bash
 
@@ -42,7 +42,7 @@ then
     echo 'export PS1="\[\e[31m\][\[\e[m\]\[\e[38;5;172m\]\u\[\e[m\]@\[\e[38;5;153m\]\h\[\e[m\] \[\e[38;5;214m\]\W\[\e[m\]\[\e[31m\]]\[\e[m\]\$ "' >> /root/.bashrc
     echo 'export EDITOR="nano"' >> /home/${name}/.bashrc
 
-    # Change shell of existing users.
+    # On change de shell pour les users actuels
     sed -e 's;/bin/ash$;/bin/bash;g' -i /etc/passwd
 
 fi
