@@ -26,13 +26,6 @@ case ${accept} in n|N)
 esac
 
 
-#if [ ${accept} = n ]
-#then
-#    exit
-#    rm -R install.sh
-#fi
-
-
 #################################################################
 ##  Les dépôts de départ avec le community activé
 #################################################################
@@ -83,12 +76,19 @@ for f in ${ROOT_DIR}/scripts/*.sh; do
     sh "$f"
 done
 
-#################################################################
-##  On exécute les complements/scripts un à un
-#################################################################
-for f in ${ROOT_DIR}/complements/scripts/*.sh; do
-    sh "$f"
-done
+
+echo "--- Voulez vous le pas-à-pas de propositions des complémentaires ?"
+echo "(o/N)"
+read complementaires
+
+case ${complementaires} in o|O) 
+    #################################################################
+    ##  On exécute les complements/scripts un à un
+    #################################################################
+    for f in ${ROOT_DIR}/complements/scripts/*.sh; do
+        sh "$f"
+    done
+esac
 
 # Le motd sera remplacé par celui remplis au fil des scripts
 rm /etc/motd
