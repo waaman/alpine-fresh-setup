@@ -20,12 +20,18 @@ echo "Ce script est fourni comme tel. Sans garantie de résultat et sous la Lice
 echo "Vous comprenez et acceptez ces termes ? (o/N)"
 read accept
 
-if [ ${accept} =~ ^(n|N)$ ]
-then
+case ${accept} in n|N) 
     exit
     rm -R install.sh
-fi
-echo "-------------------------------------------------------------------------------"
+esac
+
+
+#if [ ${accept} = n ]
+#then
+#    exit
+#    rm -R install.sh
+#fi
+
 
 #################################################################
 ##  Les dépôts de départ avec le community activé
