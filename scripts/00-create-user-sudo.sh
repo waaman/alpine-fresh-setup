@@ -20,7 +20,11 @@ done
 echo "Son id: (vide = defaut: 99)"
 read user_id
 
-user_id = ${user_id:=99}
+if [[ -z ${user_id} ]]
+then
+    user_id=99
+fi
+
 # Vérifications de saisie
 while getent passwd ${user_id} >/dev/null;
 do
@@ -32,6 +36,12 @@ done
 
 echo "Son groupe: (vide = defaut: users)"
 read user_group
+
+if [[ -z ${user_group} ]]
+then
+    user_group=users
+fi
+
 # Vérifications de saisie
 while ! getent group ${user_group} >/dev/null;
 do
@@ -40,23 +50,7 @@ do
     read user_group
 done
 
-
-if [[ -z ${user_id} ]] && [[ -z ${user_group} ]]
-    then
-        user_id=99
-        user_group=users
-        adduser -u 99 -G users ${user_name} 
-    elif  [[ -z ${user_id} ]]
-    then
-        user_id=99
-        adduser -u ${user_id} -G ${user_group} ${user_name}         
-    elif  [[ -z ${user_group} ]]
-    then
-        user_group=users
-        adduser -u ${user_id} -G ${user_group} ${user_name} 
-    else
-        adduser -u ${user_id} -G ${user_group} ${user_name} 
-fi
+adduser -u ${user_id} -G ${user_group} ${user_name} 
 
 
 echo "Ajout de l'utilisateur dans le groupe wheel"
