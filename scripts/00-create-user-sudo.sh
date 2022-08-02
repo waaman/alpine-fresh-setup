@@ -19,8 +19,9 @@ done
 
 echo "Son id: (vide = defaut: 99)"
 read user_id
+
 # Vérifications de saisie
-while getent passwd ${user_id} >/dev/null;
+while getent passwd ${user_id:=99} >/dev/null;
 do
     echo "L'id ${user_id} est déja pris."
     echo "Son id: (vide = defaut: 99) (Ctrl+c pour annuler)"
