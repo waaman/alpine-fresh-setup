@@ -8,9 +8,10 @@ ROOT_DIR=$(dirname $(readlink -f $0))/..
 
 echo "CIFS / SAMBA ?"
 echo "(o/N)"
-read cifs
+read accept
 
-if [[ ! ${cifs} =~ ^(n|N)$ ]]
-then
-    apk add cifs-utils samba
-fi
+case ${accept} in n|N) 
+    exit
+esac
+
+apk add cifs-utils samba
