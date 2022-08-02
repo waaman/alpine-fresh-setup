@@ -21,8 +21,8 @@ read mount_tag
 echo "Dans quel dossier le monter (ATTENTION: ce dossier va être créé) ?"
 read mount_folder
 
-mkdir -p mount_folder
-chmod -R 0777 mount_folder
+mkdir -p ${mount_folder}
+chmod -R 0777 ${mount_folder}
 echo "${mount_tag}        ${mount_folder}            9p         trans=virtio,version=9p2000.L,_netdev,rw 0 0" >> /etc/fstab
 mount -a
 
