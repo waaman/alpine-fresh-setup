@@ -19,38 +19,42 @@ done
 
 echo "Son id: (vide = defaut: 99)"
 read user_id
-
-if [[ -z ${user_id} ]]
-then
-    user_id=99
-fi
-
 # Vérifications de saisie
 while getent passwd ${user_id} >/dev/null;
 do
     echo "L'id ${user_id} est déja pris."
-    echo "Son id: (vide = defaut: 99) (Ctrl+c pour annuler)"
+    echo "Son id: (Ctrl+c pour annuler)"
     read user_id
 done
 
 
 echo "Son groupe: (vide = defaut: users)"
 read user_group
-
-if [[ -z ${user_group} ]]
-then
-    user_group=users
-fi
-
 # Vérifications de saisie
 while ! getent group ${user_group} >/dev/null;
 do
     echo "Le groupe ${user_group} n'existe pas."
-    echo "Son groupe: (vide = defaut: users) (Ctrl+c pour annuler)"
+    echo "Son groupe: (Ctrl+c pour annuler)"
     read user_group
 done
 
-adduser -u ${user_id} -G ${user_group} ${user_name} 
+
+if [[ -z ${user_id} ]] && [[ -z ${user_group} ]]
+    then
+        user_id=99
+        user_group=users
+        adduser -u 99 -G users ${user_name} 
+    elif  [[ -z ${user_id} ]]
+    then
+        user_id=99
+        adduser -u ${user_id} -G ${user_group} ${user_name}         
+    elif  [[ -z ${user_group} ]]
+    then
+        user_group=users
+        adduser -u ${user_id} -G ${user_group} ${user_name} 
+    else
+        adduser -u ${user_id} -G ${user_group} ${user_name} 
+fi
 
 
 echo "Ajout de l'utilisateur dans le groupe wheel"
