@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VERSION="v0.0.7"
+VERSION="v0.0.8"
 
 SYSTEM_USER_NAME=$(id -un)
 if [[ ${SYSTEM_USER_NAME} != 'root'  ]]
@@ -46,7 +46,7 @@ EOF
 #################################################################
 ##  Préparation du terrain
 #################################################################
-echo "---- Installation de paquets utiles: nano git sudo curl tree"
+echo "---- Installation de paquets utiles: nano git sudo curl tree runuser"
 apk update > /dev/null && apk add nano git sudo curl tree runuser > /dev/null
 
 echo "---- Le groupe wheel sera autorisé à sudo"
