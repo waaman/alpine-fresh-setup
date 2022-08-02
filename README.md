@@ -12,7 +12,9 @@ Script facilitant la mise en place de son utilisateur avec les droits sudo ainsi
 
 Depuis votre système Alpine fraîchement installé et en tant que root lancez le pas à pas avec:
 
-    wget https://raw.githubusercontent.com/waaman/alpine-fresh-setup/main/install.sh -v -O install.sh; chmod a+x install.sh; ./install.sh
+    wget https://raw.githubusercontent.com/waaman/alpine-fresh-setup/main/install.sh
+    chmod a+x install.sh
+    ./install.sh
 
   
   

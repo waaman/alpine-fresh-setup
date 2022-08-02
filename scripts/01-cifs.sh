@@ -10,7 +10,7 @@ echo "CIFS / SAMBA ?"
 echo "(o/N)"
 read cifs
 
-if [ ! ${cifs} = n ]
+if [[ ! ${cifs} =~ ^(n|N)$ ]]
 then
     apk add cifs-utils samba
 fi
