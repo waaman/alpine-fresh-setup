@@ -25,8 +25,11 @@ apk add msmtp mailx
 cp ${ROOT_DIR}/complements/fs/mail/etc/msmtprc /etc/
 
 mkdir -p /etc/local.d/
-cp ${ROOT_DIR}/complements/fs/mail/etc/local.d/* /etc/local.d/
-
+cat > /etc/local.d/msmtp-sendmail.start << EOF; $(echo)
+#!/bin/sh
+ln -sf /usr/bin/msmtp /usr/bin/sendmail
+ln -sf /usr/bin/msmtp /usr/sbin/sendmail
+EOF
 # On donne drois d'exécution
 chmod +x /etc/local.d/msmtp-sendmail.start
 
