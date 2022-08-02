@@ -77,7 +77,7 @@ for f in ${ROOT_DIR}/scripts/*.sh; do
 done
 
 
-echo "--- Voulez vous le pas-à-pas de propositions des complémentaires ?"
+echo "---- Voulez vous le pas-à-pas de propositions des complémentaires ?"
 echo "(o/N)"
 read complementaires
 
@@ -96,7 +96,7 @@ cp ${ROOT_DIR}/motd /etc/motd
 
 
 #################################################################
-##  On supprime les sources github
+##  Ménage
 #################################################################
 echo "---- Ménage"
 cd .. && rm -R workdir/ install.sh
