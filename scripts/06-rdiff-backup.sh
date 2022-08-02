@@ -22,7 +22,7 @@ read -r group < ${ROOT_DIR}/user_group
 # Installation des paquets essentiels
 apk add rdiff-backup
 mkdir -p /home/${name}/.rdiff/
-cat > /home/${name}/.rdiff/basic-exemplz << EOF; $(echo)
+cat > /home/${name}/.rdiff/basic-exemple << EOF; $(echo)
 #!/bin/sh
 # A modifier
 SOURCE="/dossier/source/"
