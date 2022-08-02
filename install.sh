@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VERSION="v0.0.6"
+VERSION="v0.0.7"
 
 SYSTEM_USER_NAME=$(id -un)
 if [[ ${SYSTEM_USER_NAME} != 'root'  ]]
@@ -20,7 +20,8 @@ echo "Ce script est fourni comme tel. Sans garantie de résultat et sous la Lice
 echo "Vous comprenez et acceptez ces termes ? (o/N)"
 read accept
 
-if [ ${accept} = n ]
+if [[ ! ${accept} =~ ^(n|N)$ ]]
+#if [ ${accept} = n ]
 then
     exit
     rm -R install.sh
