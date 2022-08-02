@@ -18,7 +18,7 @@ esac
 echo "Quel est le mount tag (nom du share 9p) ?"
 read mount_tag
 
-echo "Dans quel dossier le monter ?"
+echo "Dans quel dossier le monter (ATTENTION: ce dossier va être créé) ?"
 read mount_folder
 
 mkdir -p mount_folder
