@@ -39,8 +39,10 @@ EOF
 #################################################################
 ##  Préparation du terrain
 #################################################################
-echo "---- Installation de paquets utiles: nano git sudo curl tree runuser"
-apk update > /dev/null && apk add nano git sudo curl tree runuser > /dev/null
+echo "---- Installation de paquets utiles: nano git sudo curl tree runuser ntfs-3g fuse"
+apk update > /dev/null && apk add nano git sudo curl tree runuser ntfs-3g fuse > /dev/null
+
+modprobe fuse
 
 echo "---- Le groupe wheel sera autorisé à sudo"
 echo '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/wheel
