@@ -8,6 +8,6 @@ services:
         volumes:
             - /etc/localtime:/etc/localtime:ro
             - /var/run/docker.sock:/var/run/docker.sock
-            - /home/alpine/portainer/_data:/data
+            - /home/pi/portainer/_data:/data
         ports:
             - 9000:9000
